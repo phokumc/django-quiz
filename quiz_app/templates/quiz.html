@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}Quiz Questions{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-body">
+            <form method="post" action="{% url 'score' %}">
+                {% csrf_token %}
+                {% for question in questions %}
+                <div id="question{{ forloop.counter0 }}" {% if not forloop.first %}style="display: none;"{% endif %}>
+                    <h5 class="mb-3"><strong> Q{{ forloop.counter }}/{{ total_questions }} : {{ question.question }} </strong></h5>
+                    <div class="px-3">                    
+                        <ul class="list-unstyled"><label><input type="radio" name="question_{{ question.id }}" value="{{ question.option_1 }}"> {{ question.option_1 }}</label></ul>
+                        <ul class="list-unstyled"><label><input type="radio" name="question_{{ question.id }}" value="{{ question.option_2 }}"> {{ question.option_2 }}</label></ul>
+                        <ul class="list-unstyled"><label><input type="radio" name="question_{{ question.id }}" value="{{ question.option_3 }}"> {{ question.option_3 }}</label></ul>
+                        <ul class="list-unstyled"><label><input type="radio" name="question_{{ question.id }}" value="{{ question.option_4 }}"> {{ question.option_4 }}</label></ul> 
+                    </div>                   
+                </div>
+                {% endfor %}
+                <div class="d-flex justify-content-between align-items-center mt-3">
+                    <button type="button" id="prevBtn" class="btn btn-outline-primary" disabled>Previous</button>
+                    <button type="button" id="nextBtn" class="btn btn-primary ml-auto">Next</button>
+                    <button type="submit" id="submitBtn" style="display: none;" class="btn btn-primary">Submit</button> 
+                </div>
+                <hr class="my-4">
+                <div class="text-center">
+                    <strong>Time left: <span id="countdown"></span></strong>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
