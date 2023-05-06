@@ -6,58 +6,63 @@
 
 {% block content %}
     <div class="container">
-        <div class="card mb-3">
-            <div class="card-body">
-                <h3 class="card-title">Welcome</h3>
-                <p class="card-text">
-                    Welcome to our quiz web page! This platform is designed to test your knowledge in various web development 
-                    topics including <strong>Django, Python, HTML, CSS</strong> and <strong>JavaScript</strong>. Each topic contains 25 multiple choice questions 
-                    and you can select one topic at a time. Once you start the quiz, a 1-minute countdown timer will begin for each question. 
-                    When the time is up, the next question will be automatically loaded. Good luck and have fun testing your knowledge!
-                </p>
+        <div class="col-sm-12">
+            <div class="card mb-5">
+                <div class="card-body">
+                    <h3 class="card-title">Welcome</h3>
+                    <p class="card-text">
+                        Welcome to our quiz web page! This platform is designed to test your knowledge in various web development 
+                        topics including <strong>Django, Python, HTML, CSS</strong> and <strong>JavaScript</strong>. Each topic contains 25 multiple choice questions 
+                        and you can select one topic at a time. Once you start the quiz, a 1-minute countdown timer will begin for each question. 
+                        When the time is up, the next question will be automatically loaded. Good luck and have fun testing your knowledge!
+                    </p>
+                </div>
             </div>
         </div>
+        
 
-        <div class="card mb-3">
-            <div class="card-body">
-                <h3 class="card-title">Select Quiz</h3>
-                <form method="POST" action="{% url 'quiz' %}">
-                    {% csrf_token %}
-                    <div class="form-group">
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="options" id="Django" value="Django">
-                            <label class="form-check-label" for="Django">
-                                Django
-                            </label>
+        <div class="col-sm-12">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h3 class="card-title">Select Quiz</h3>
+                    <form method="POST" action="{% url 'quiz' %}">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="options" id="Django" value="Django">
+                                <label class="form-check-label" for="Django">
+                                    Django
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="options" id="Python" value="Python">
+                                <label class="form-check-label" for="Python">
+                                    Python
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="options" id="HTML" value="HTML">
+                                <label class="form-check-label" for="HTML">
+                                    HTML
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="options" id="CSS" value="CSS">
+                                <label class="form-check-label" for="CSS">
+                                    CSS
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="options" id="JavaScript" value="JavaScript">
+                                <label class="form-check-label" for="JavaScript">
+                                    JavaScript
+                                </label>
+                            </div>
                         </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="options" id="Python" value="Python">
-                            <label class="form-check-label" for="Python">
-                                Python
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="options" id="HTML" value="HTML">
-                            <label class="form-check-label" for="HTML">
-                                HTML
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="options" id="CSS" value="CSS">
-                            <label class="form-check-label" for="CSS">
-                                CSS
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="options" id="JavaScript" value="JavaScript">
-                            <label class="form-check-label" for="JavaScript">
-                                JavaScript
-                            </label>
-                        </div>
-                    </div>
-                    <hr>
-                    <button type="submit" class="btn btn-primary btn-block">Submit</button>
-                </form>
+                        <hr>
+                        <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

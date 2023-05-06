@@ -4,31 +4,33 @@
 
 {% block content %}
     <div class="card mb-3">
-        <div class="card-body">
-            <h3 class="card-title px-3">You Scored: {{ score }}/{{ total_questions }}</h3>
-            {% if percentage == 100 %}
-                <h5 class="card-text px-3 text-success">Congratulations!!<br>You got {{ percentage }}% of the answers correct.</h5>
-            {% elif percentage >= 70 %}
-                <h5 class="card-text px-3 text-success">Well done!!<br>You got {{ percentage }}% of the answers correct.</h5>
-            {% elif percentage < 70 and percentage > 50 %}
-                <h5 class="card-text px-3">You got {{ percentage }}% of the answers correct, do you want to try again?<br>
-                <a href="{% url 'home' %}" class="btn btn-primary mt-3">Try again</a></h5>
-            {% else %}
-                <h5 class="card-text px-3 text-danger">You got {{ percentage }}% of the answers correct, you need to revise your {{ selected_option }} knowledge.</h5>
-            {% endif %}
-            <hr>
-            <ul style="list-style-type: decimal;">
-                {% for result in results %}
-                    <li>
-                        <span style="color: {% if result.2 %} green {% else %} red {% endif %};"><strong>{{ result.0.question }}</strong></span><br>
-                        Your answer : <span style="color: {% if result.2 %} green {% else %} red {% endif %};"> {{ result.1 }}</span><br>
-                        Correct answer : <span style="color: green;"> {{ result.0.answer }}</span>
-                    </li>
-                    <br>
-                {% endfor %}
-            </ul>
-            <hr>
-            <a href="{% url 'home' %}" class="btn btn-primary mt-3">Home</a>
+        <div class="col-sm-12">
+            <div class="card-body">
+                <h3 class="card-title px-3">You Scored: {{ score }}/{{ total_questions }}</h3>
+                {% if percentage == 100 %}
+                    <h5 class="card-text px-3 text-success">Congratulations!!<br>You got {{ percentage }}% of the answers correct.</h5>
+                {% elif percentage >= 70 %}
+                    <h5 class="card-text px-3 text-success">Well done!!<br>You got {{ percentage }}% of the answers correct.</h5>
+                {% elif percentage < 70 and percentage > 50 %}
+                    <h5 class="card-text px-3">You got {{ percentage }}% of the answers correct, do you want to try again?<br>
+                    <a href="{% url 'home' %}" class="btn btn-primary mt-3">Try again</a></h5>
+                {% else %}
+                    <h5 class="card-text px-3 text-danger">You got {{ percentage }}% of the answers correct, you need to revise your {{ selected_option }} knowledge.</h5>
+                {% endif %}
+                <hr>
+                <ul style="list-style-type: decimal;">
+                    {% for result in results %}
+                        <li>
+                            <span style="color: {% if result.2 %} green {% else %} red {% endif %};"><strong>{{ result.0.question }}</strong></span><br>
+                            Your answer : <span style="color: {% if result.2 %} green {% else %} red {% endif %};"> {{ result.1 }}</span><br>
+                            Correct answer : <span style="color: green;"> {{ result.0.answer }}</span>
+                        </li>
+                        <br>
+                    {% endfor %}
+                </ul>
+                <hr>
+                <a href="{% url 'home' %}" class="btn btn-primary mt-3">Home</a>
+            </div>
         </div>
     </div>
 {% endblock %}
