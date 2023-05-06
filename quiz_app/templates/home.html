@@ -5,11 +5,11 @@
 {% endblock %}
 
 {% block content %}
-    <div class="quiz-container">
-        <div class="card">
+    <div class="container">
+        <div class="card mb-3">
             <div class="card-body">
                 <h3 class="card-title">Welcome</h3>
-                <p>
+                <p class="card-text">
                     Welcome to our quiz web page! This platform is designed to test your knowledge in various web development 
                     topics including <strong>Django, Python, HTML, CSS</strong> and <strong>JavaScript</strong>. Each topic contains 25 multiple choice questions 
                     and you can select one topic at a time. Once you start the quiz, a 1-minute countdown timer will begin for each question. 
@@ -17,10 +17,8 @@
                 </p>
             </div>
         </div>
-    </div>       
-                
-    <div class="quiz-container">
-        <div class="card">
+
+        <div class="card mb-3">
             <div class="card-body">
                 <h3 class="card-title">Select Quiz</h3>
                 <form method="POST" action="{% url 'quiz' %}">
@@ -58,7 +56,7 @@
                         </div>
                     </div>
                     <hr>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary btn-block">Submit</button>
                 </form>
             </div>
         </div>
